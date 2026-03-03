@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { Send, CheckCircle2, Loader2 } from 'lucide-react';
 import { motion } from 'framer-motion';
 import axios from 'axios';
+import { API_URL } from '../utils/constants';
 
 // Assets
 import contactAiSupportImg from '../assets/images/contact_ai_support.png';
@@ -15,7 +16,7 @@ const ContactPage: React.FC = () => {
         e.preventDefault();
         setStatus('loading');
         try {
-            await axios.post('http://localhost:8000/api/v1/contact', form);
+            await axios.post(`${API_URL}/contact`, form);
             setStatus('success');
             setForm({ name: '', email: '', subject: '', message: '' });
         } catch (err) {

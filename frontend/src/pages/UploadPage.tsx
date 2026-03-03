@@ -4,6 +4,7 @@ import { Upload, File, X, AlertCircle, CheckCircle2, ShieldCheck, Zap } from 'lu
 import { motion, AnimatePresence } from 'framer-motion';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
+import { API_URL } from '../utils/constants';
 
 // Assets
 import scanNodeImg from '../assets/images/upload_scan_node.png';
@@ -52,7 +53,7 @@ const UploadPage: React.FC = () => {
 
         try {
             // Use axios and localhost for consistency
-            const response = await axios.post('http://localhost:8000/api/v1/upload', formData, {
+            const response = await axios.post(`${API_URL}/upload`, formData, {
                 headers: {
                     'Content-Type': 'multipart/form-data',
                 },

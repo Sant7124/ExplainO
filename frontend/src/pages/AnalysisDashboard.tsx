@@ -7,6 +7,7 @@ import {
 } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 import axios from 'axios';
+import { API_URL } from '../utils/constants';
 
 const ShimmerLoader = () => (
     <div className="pt-32 p-6 md:p-12 max-w-6xl mx-auto w-full animate-pulse">
@@ -49,7 +50,7 @@ const AnalysisDashboard: React.FC = () => {
 
     const fetchSession = async () => {
         try {
-            const response = await axios.get(`http://localhost:8000/api/v1/documents/${sessionId}`);
+            const response = await axios.get(`${API_URL}/documents/${sessionId}`);
             const doc = response.data;
 
             if (doc.status === 'ready') {
@@ -91,7 +92,7 @@ const AnalysisDashboard: React.FC = () => {
         setChatLoading(true);
 
         try {
-            const response = await axios.post(`http://localhost:8000/api/v1/chat/${sessionId}`, {
+            const response = await axios.post(`${API_URL}/chat/${sessionId}`, {
                 question: userMsg
             });
 
@@ -107,7 +108,7 @@ const AnalysisDashboard: React.FC = () => {
 
     const handleDownload = async () => {
         try {
-            const url = `http://localhost:8000/api/v1/documents/${sessionId}/export`;
+            const url = `${API_URL}/documents/${sessionId}/export`;
             console.log("Initiating export request to:", url);
 
             const response = await axios.get(url, {
