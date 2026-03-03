@@ -1,13 +1,11 @@
 import React, { useState } from 'react';
-import { Mail, Send, CheckCircle2, Loader2, Globe } from 'lucide-react';
+import { Send, CheckCircle2, Loader2 } from 'lucide-react';
 import { motion } from 'framer-motion';
 import axios from 'axios';
 
 // Assets
 import contactAiSupportImg from '../assets/images/contact_ai_support.png';
 import contactDataNexusImg from '../assets/images/contact_data_nexus.png';
-import contactIconMessageImg from '../assets/images/contact_icon_message.png';
-import contactIconHqImg from '../assets/images/contact_icon_hq.png';
 
 const ContactPage: React.FC = () => {
     const [form, setForm] = useState({ name: '', email: '', subject: '', message: '' });

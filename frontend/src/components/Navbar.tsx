@@ -1,8 +1,7 @@
-import React from 'react';
-import { FileText, Github, Menu, X, ArrowUpRight } from 'lucide-react';
+import { FileText, Menu, X, ArrowUpRight } from 'lucide-react';
 import { useState, useEffect } from 'react';
 
-const Navbar: React.FC = () => {
+const Navbar = () => {
     const [isOpen, setIsOpen] = useState(false);
     const [scrolled, setScrolled] = useState(false);
 

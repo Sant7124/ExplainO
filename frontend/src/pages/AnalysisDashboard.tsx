@@ -3,7 +3,7 @@ import { useParams, useNavigate } from 'react-router-dom';
 import {
     FileText, Shield, AlertTriangle, Calendar,
     CheckCircle, MessageSquare, Download, Send,
-    Loader2, ArrowLeft, RefreshCw, Zap, X, ChevronRight
+    Loader2, ArrowLeft, Zap, X, ChevronRight
 } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 import axios from 'axios';
