@@ -1,7 +1,5 @@
 import os
 import requests
-import torch
-from sentence_transformers import SentenceTransformer
 from services.logger import log_event
 from core.config import settings
 
@@ -24,6 +22,10 @@ class EmbeddingService:
             self._model = "FALLBACK"
             return
 
+        # Move heavy imports inside here for faster startup
+        import torch
+        from sentence_transformers import SentenceTransformer
+
         model_name = "sentence-transformers/all-MiniLM-L6-v2"
         try:
             log_event("EmbeddingService", f"Initializing Local Model: {model_name}...")
@@ -45,6 +47,7 @@ class EmbeddingService:
         # Try Local first
         if self._model and self._model != "FALLBACK":
             try:
+                import torch
                 embeddings = self._model.encode(sentences, convert_to_tensor=True)
                 normalized_embeddings = torch.nn.functional.normalize(embeddings, p=2, dim=1)
                 return normalized_embeddings.tolist()

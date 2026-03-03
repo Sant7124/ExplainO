@@ -16,7 +16,6 @@ pymupdf
 python-docx
 pillow
 fastapi-limiter
-sentence-transformers
 pypdf
 sqlmodel
 cryptography
