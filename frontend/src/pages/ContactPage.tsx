@@ -16,7 +16,7 @@ const ContactPage: React.FC = () => {
         e.preventDefault();
         setStatus('loading');
         try {
-            await axios.post(`${API_URL}/contact`, form);
+            await axios.post(`${API_URL}/api/v1/contact`, form);
             setStatus('success');
             setForm({ name: '', email: '', subject: '', message: '' });
         } catch (err) {

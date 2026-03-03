@@ -53,7 +53,7 @@ const UploadPage: React.FC = () => {
 
         try {
             // Use axios and localhost for consistency
-            const response = await axios.post(`${API_URL}/upload`, formData, {
+            const response = await axios.post(`${API_URL}/api/v1/upload`, formData, {
                 headers: {
                     'Content-Type': 'multipart/form-data',
                 },
