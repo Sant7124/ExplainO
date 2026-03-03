@@ -24,6 +24,7 @@ class Settings(BaseSettings):
     
     # Vector DB Settings
     CHROMA_DB_PATH: str = "./chroma_db"
+    chroma_server_nofile: bool = False  # Added for Render compatibility/Pydantic V2
     
     # Email Settings (Resend)
     RESEND_API_KEY: Optional[str] = None
